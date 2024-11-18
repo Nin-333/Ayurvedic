@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Help & Support</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    .sidebar {
+      width: 200px;
+      background-color: #191b1c;
+      color: white;
+      padding: 20px 0;
+      position: fixed;
+      height: 100%;
+    }
+    .sidebar a {
+      color: white;
+      display: block;
+      padding: 10px 20px;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #495057;
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+      width: 100%;
+    }
+    .section-title {
+      margin-top: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    .card {
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    }
+    .card-header {
+      background-color: #191b1c;
+      color: white;
+    }
+    .card-body {
+      padding: 15px;
+    }
+    .contact-form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-control {
+      margin-bottom: 15px;
+    }
+    .submit-btn {
+      background-color: #191b1c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    .submit-btn:hover {
+      background-color: #495057;
+    }
+  </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="ChatBox.html">ChatBox</a>
+      <a href="Health-tips.html">Health Tips</a>
+      <a href="health-Record.html">Health Record</a>
+      <a href="emergency-contact.html">Emergency Contact</a>
+      <a href="feedback.html">Feedback</a>
+      <a href="help.html">Help</a>
+      <a href="notifications.html">Notifications</a>
+      <a href="profile.html">Profile</a>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <nav class="" style="background-color: white;"
+      
+    </nav>
+
+    <div class="container my-5">
+      <!-- Section Title -->
+      <h2 class="section-title">Help & Support</h2>
+
+      <!-- FAQ Section -->
+      <div class="card">
+        <div class="card-header">
+          Frequently Asked Questions (FAQ)
+        </div>
+        <div class="card-body">
+          <ul>
+            <li><strong>How do I reset my password?</strong> <br> To reset your password, click <a href="reset-password.html">here</a> and follow the instructions sent to your email.</li>
+            <li><strong>How can I update my profile information?</strong> <br> You can update your profile information by going to the "Profile" section after logging in.</li>
+            <li><strong>How do I connect with other People?</strong> <br> Use the "Connect with People" section to send friend requests and connect with other parents in your network.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact Info Section -->
+      <div class="card mt-4">
+        <div class="card-header">
+          Contact Information
+        </div>
+        <div class="card-body">
+          <p>If you have any further questions or need assistance, feel free to reach out to us:</p>
+          <ul>
+            <li><strong>Email:</strong> support@HomeMedicine&Science.com</li>
+            <li><strong>Phone:</strong> 123-456-7890</li>
+            <li><strong>Address:</strong> 123 Ayurvedic Street, City, Country</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Support Request Form -->
+      <div class="card mt-4">
+        <div class="card-header">
+          Submit a Support Request
+        </div>
+        <div class="card-body">
+          <form class="contact-form" action="submit-request.php" method="POST">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" class="form-control" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+              <p>Forgot your password? Click <a href="reset-password.html">here</a> to reset it.</p>
+            </div>
+            <button type="submit" class="submit-btn">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

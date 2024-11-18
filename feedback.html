@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .sidebar {
+      height: 100vh;
+      width: 220px;
+      background-color: #2f4f4f;
+      position: fixed;
+      padding-top: 20px;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 10px 15px;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background-color: #5f9ea0;
+    }
+    .content {
+      margin-left: 240px;
+      padding: 20px;
+    }
+    .feedback-card {
+      background-color: #f8f9fa;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .feedback-card h5 {
+      color: #4682b4;
+    }
+    .feedback-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    .profile-pic {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+   <!-- Sidebar -->
+   <div class="sidebar">
+    <a href="dashboard.html">Dashboard</a>
+    <a href="ChatBox.html">ChatBox</a>
+    <a href="Health-tips.html">Health Tips</a>
+    <a href="health-Record.html">Health Record</a>
+    <a href="emergency-contact.html">Emergency Contact</a>
+    <a href="feedback.html">Feedback</a>
+    <a href="help.html">Help</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="profile.html">Profile</a>
+</div>
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Feedback</h2>
+
+    <!-- Feedback Form -->
+    <h4>Submit Your Feedback</h4>
+    <form id="feedback-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="feedback">Feedback</label>
+        <textarea class="form-control" id="feedback" rows="3" placeholder="Enter your feedback" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="feedback-image">Upload Image (optional)</label>
+        <input type="file" class="form-control-file" id="feedback-image" accept="image/*">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Feedback</button>
+    </form>
+
+    <hr>
+
+    <!-- Feedback Display Section -->
+    <h4>Submitted Feedback</h4>
+    <div id="feedback-list">
+      <!-- Submitted feedback will appear here -->
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Event listener for feedback form submission
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get form data
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const feedbackText = document.getElementById('feedback').value;
+      const feedbackImage = document.getElementById('feedback-image').files[0];
+
+      // Create a feedback card div to hold the feedback data
+      const feedbackCard = document.createElement('div');
+      feedbackCard.classList.add('feedback-card');
+      
+      // Add name, email, and feedback text to the feedback card
+      feedbackCard.innerHTML = `
+        <div class="d-flex align-items-center">
+          <img src="pic.png" alt="Profile Picture" class="profile-pic"> 
+          <div>
+            <h5>${name}</h5>
+            <p>Email: ${email}</p>
+            <p>${feedbackText}</p>
+          </div>
+        </div>
+      `;
+
+      // If feedback image exists, display it
+      if (feedbackImage) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const img = document.createElement('img');
+          img.src = event.target.result;
+          feedbackCard.appendChild(img);  // Append image below feedback text
+        };
+        reader.readAsDataURL(feedbackImage);
+      }
+
+      // Append the feedback card to the feedback list
+      document.getElementById('feedback-list').appendChild(feedbackCard);
+
+      // Reset the form after submission
+      document.getElementById('feedback-form').reset();
+    });
+  </script>
+</body>
+</html>

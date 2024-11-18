@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda Chat Assistant</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f6f9;
+        }
+        /* Sidebar styling */
+        .sidebar {
+            width: 220px;
+            background-color: #2e3b4e;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .sidebar a:hover {
+            background-color: #475d7e;
+        }
+        /* Chatbox container styling */
+        .chatbox-container {
+            margin-left: 240px;
+            padding: 20px;
+            width: 100%;
+        }
+        .chatbox {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 400px; /* Reduced height */
+            max-width: 500px; /* Reduced width */
+            margin: 0 auto;
+        }
+        .chatbox-header {
+            background-color: #2e3b4e;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .chatbox-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f9fafc;
+        }
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+        .bot-message {
+            background-color: #e1f5fe;
+            align-self: flex-start;
+        }
+        .user-message {
+            background-color: #d1e7dd;
+            align-self: flex-end;
+        }
+        .chatbox-footer {
+            display: flex;
+            border-top: 1px solid #ddd;
+            padding: 10px;
+            align-items: center;
+        }
+        #chatInput {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #sendMessageBtn {
+            margin-left: 10px;
+            padding: 10px 15px;
+            background-color: #2e3b4e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #sendMessageBtn:hover {
+            background-color: #475d7e;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="ChatBox.html">ChatBox</a>
+        <a href="Health-tips.html">Health Tips</a>
+        <a href="health-Record.html">Health Record</a>
+        <a href="emergency-contact.html">Emergency Contact</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="help.html">Help</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="profile.html">Profile</a>
+    </div>
+    <script>
+        // Call this after sending a message
+        function sendMessage() {
+          const chatInput = document.getElementById('chatInput');
+          const userMessageText = chatInput.value.trim();
+      
+          if (userMessageText === '') return;
+      
+          showPopup('Message sent successfully!');
+        }
+      </script>
+      
+    <!-- Chatbox Section -->
+    <div class="chatbox-container">
+        <header>
+            <h1>Ayurveda Chat Assistant</h1>
+        </header>
+        <div class="chatbox">
+            <div class="chatbox-header">
+                <h4>Ask your wellness questions</h4>
+            </div>
+            <div class="chatbox-body" id="chatboxBody">
+                <div class="message bot-message">Hello! How can I assist you with your wellness today?</div>
+            </div>
+            <div class="chatbox-footer">
+                <input type="text" id="chatInput" placeholder="Enter your health concern..." />
+                <button id="sendMessageBtn" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let remediesData = [];
+
+        // Load JSON data from an external file
+        fetch('disease_remedies.json')
+            .then(response => response.json())
+            .then(data => remediesData = data);
+
+        function sendMessage() {
+            const chatInput = document.getElementById('chatInput');
+            const chatMessages = document.getElementById('chatboxBody');
+            const userMessageText = chatInput.value.trim();
+            if (userMessageText === '') return;
+
+            // Display user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user-message';
+            userMessage.textContent = userMessageText;
+            chatMessages.appendChild(userMessage);
+
+            // Clear input
+            chatInput.value = '';
+
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Extract disease keyword and get bot response
+            const disease = extractDisease(userMessageText);
+            const botResponses = getRemedies(disease);
+            botResponses.forEach(response => {
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot-message';
+                botMessage.textContent = `${response.natural_remedy}: ${response.description}`;
+                chatMessages.appendChild(botMessage);
+            });
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function extractDisease(text) {
+            const keywords = remediesData.map(item => item.disease);
+            text = text.toLowerCase();
+            for (let keyword of keywords) {
+                if (text.includes(keyword)) {
+                    return keyword;
+                }
+            }
+            return "";
+        }
+
+        function getRemedies(disease) {
+            if (!disease) {
+                return [{ "natural_remedy": "No remedy found", "description": "No suitable remedy for this concern." }];
+            }
+            const remedies = remediesData.find(item => item.disease === disease);
+            return remedies ? remedies.remedies : [{ "natural_remedy": "No remedy found", "description": "No suitable remedy for this concern." }];
+        }
+    </script>
+</body>
+</html>

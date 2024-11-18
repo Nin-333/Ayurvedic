@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayurvedic Home Medicine and Science</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      scroll-behavior: smooth;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styling */
+    .navbar {
+      background-color: #4a90e2;
+      padding: 15px;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    .navbar-nav .nav-link {
+      margin-right: 20px;
+      transition: color 0.3s ease-in;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #d0e7ff !important;
+    }
+    .btn-login {
+      background-color: #007bff;
+      color: white;
+      margin-left: auto;
+    }
+
+    /* Centered Title Section */
+    .main-title {
+      text-align: center;
+      margin-top: 100px;
+      color: #4a90e2;
+      font-size: 3.5em;
+      font-weight: bold;
+    }
+    .sub-title {
+      text-align: center;
+      font-size: 1.5em;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 80px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      text-align: left;
+      min-height: 70vh;
+    }
+    .text-content {
+      flex: 1;
+      max-width: 600px;
+      animation: fadeIn 1.5s ease;
+      color: #333;
+      padding-right: 20px;
+    }
+    .text-content p {
+      font-size: 1.2em;
+      color: #555;
+      line-height: 1.6;
+    }
+    .text-content .highlight {
+      color: #ff6347;
+      font-weight: bold;
+    }
+    .image-card {
+      flex: 1;
+      max-width: 400px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      animation: fadeIn 1.5s ease;
+    }
+    .image-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .btn-play {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Section Styling */
+    .section {
+      padding: 100px 20px;
+      text-align: center;
+      animation: fadeIn 1.5s ease;
+    }
+    .section-heading {
+      font-size: 2.5em;
+      color: #4a90e2;
+      margin-bottom: 20px;
+    }
+
+    /* Card Styling */
+    .card-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .feature-card {
+      background-color: white;
+      border: none;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      width: 300px;
+      text-align: left;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeIn 1.5s ease;
+    }
+    .feature-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+    .feature-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .feature-card h3 {
+      margin-top: 15px;
+      font-size: 1.5em;
+      color: #333;
+      transition: color 0.3s;
+    }
+    .feature-card h3:hover {
+      color: #007bff;
+    }
+    .feature-card p {
+      color: #666;
+      margin: 10px 0;
+      font-size: 0.9em;
+    }
+
+    /* Background Animation */
+    .floral-animation {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background-image: url('https://www.transparenttextures.com/patterns/paisley.png');
+      opacity: 0.05;
+      animation: scrollBackground 30s linear infinite;
+    }
+    @keyframes scrollBackground {
+      from { background-position: 0 0; }
+      to { background-position: 100% 100%; }
+    }
+
+    .footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="#hero-section">Ayurvedic Home Medicine and Science</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#support">Support</a></li>
+        <li class="nav-item">
+          <a class="btn btn-login" href="login.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Centered Title Section -->
+  <div class="main-title">Ayurvedic Home Medicine and Science</div>
+  <div class="sub-title">Welcome to the Ayurvedic Home Medicine and Science app</div>
+
+  <!-- Hero Section with Image on the Right and Text on the Left -->
+  <div id="hero-section" class="hero-section">
+    <div class="text-content">
+      <p id="hero-text">
+        <span class="highlight">Ayurvedic Home Medicine and Science</span> is an ancient healing system using natural herbs, diet, and lifestyle practices to balance the body's energy, <span class="highlight">Ayurvedic Home Medicine and Science</span>It focuses on holistic wellness, treating the root cause of ailments rather than just symptoms.
+      </p>
+      <button class="btn-play" onclick="togglePlayPause()">Play</button>
+    </div>
+    <div class="image-card">
+      <img src="img1.webp" alt="Ayurvedic Illustration1.png">
+    </div>
+  </div>
+
+  <!-- About Section -->
+  <div id="about" class="section">
+    <h2 class="section-heading">About Home Medicine and Science</h2>
+    <div class="card-container">
+      <div class="feature-card">
+        <img src="img2.webp" alt="About Home Medicine and Science illustration">
+        <h3>About Us</h3>
+        <p>Ayurvedic Home Medicine uses natural remedies to balance health and wellness.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div id="features" class="section">
+    <h2 class="section-heading">Key Features</h2>
+    <div class="card-container">
+      <div class="feature-card">
+        <img src="img2.webp" alt="Health Tracking illustration">
+        <h3>Health Tracking</h3>
+        <p>Health tracking in Ayurveda monitors body balance for better wellness.</p>
+      </div>
+      <div class="feature-card">
+        <img src="img3.webp" alt="Health Tips illustration">
+        <h3>Health Tips</h3>
+        <p>Eat well, exercise, hydrate, sleep, reduce stress, avoid smoking, stay positive.</p>
+      </div>
+      <div class="feature-card">
+        <img src="img4.webp" alt="Social Connections illustration">
+        <h3>Social Connections</h3>
+        <p>Connect with a community of people and professionals for shared advice and support.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Support Section -->
+  <div id="support" class="section">
+    <h2 class="section-heading">Why Natural Remedies?</h2>
+    <div class="card-container">
+      <div class="feature-card">
+        <img src="img5.webp" alt="Why Natural Remedies illustration">
+        <h3>Our Mission</h3>
+        <p>Natural remedies are gentle, effective, and free from harmful side effects, promoting holistic health and well-being.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floral Animation Background -->
+  <div class="floral-animation"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2024 Ayurvedic Home Medicine. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Text-to-Speech -->
+  <script>
+    let isPlaying = false;
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = document.getElementById("hero-text").innerText;
+    speech.rate = 1;
+    speech.pitch = 1;
+    speech.lang = 'en-US';
+
+    function togglePlayPause() {
+      const button = document.querySelector('.btn-play');
+      if (!isPlaying) {
+        window.speechSynthesis.speak(speech);
+        button.innerText = 'Pause';
+      } else {
+        window.speechSynthesis.cancel();
+        button.innerText = 'Play';
+      }
+      isPlaying = !isPlaying;
+    }
+
+    speech.onend = () => {
+      isPlaying = false;
+      document.querySelector('.btn-play').innerText = 'Play';
+    };
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

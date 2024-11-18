@@ -1,0 +1,50 @@
+[
+    {
+        "disease": "fever",
+        "remedies": [
+            { "natural_remedy": "Ginger Tea", "description": "Ginger tea helps reduce fever and chills." },
+            { "natural_remedy": "Turmeric Milk", "description": "Turmeric has anti-inflammatory properties that help combat fever." },
+            { "natural_remedy": "Basil Leaves", "description": "Chewing basil leaves can help reduce fever symptoms." }
+        ]
+    },
+    {
+        "disease": "cold",
+        "remedies": [
+            { "natural_remedy": "Honey Lemon Tea", "description": "Soothes the throat and relieves cold symptoms." },
+            { "natural_remedy": "Steam Inhalation", "description": "Helps in clearing nasal congestion." },
+            { "natural_remedy": "Ginger and Honey", "description": "A mixture of ginger juice and honey can ease cold symptoms." }
+        ]
+    },
+    {
+        "disease": "headache",
+        "remedies": [
+            { "natural_remedy": "Peppermint Oil", "description": "Applying peppermint oil on the forehead helps relieve headaches." },
+            { "natural_remedy": "Ginger Tea", "description": "Ginger tea can reduce inflammation that contributes to headaches." },
+            { "natural_remedy": "Lavender Oil", "description": "Inhaling lavender oil can help reduce headache pain." }
+        ]
+    },
+    {
+        "disease": "cough",
+        "remedies": [
+            { "natural_remedy": "Honey and Warm Water", "description": "Honey in warm water can soothe the throat and reduce coughing." },
+            { "natural_remedy": "Ginger Tea", "description": "Ginger tea can help relieve a cough by reducing inflammation." },
+            { "natural_remedy": "Salt Water Gargle", "description": "Gargling with salt water can relieve throat irritation." }
+        ]
+    },
+    {
+        "disease": "stomach ache",
+        "remedies": [
+            { "natural_remedy": "Peppermint Tea", "description": "Peppermint tea can help soothe digestive discomfort." },
+            { "natural_remedy": "Chamomile Tea", "description": "Chamomile tea has relaxing properties that can relieve stomach pain." },
+            { "natural_remedy": "Fennel Seeds", "description": "Chewing fennel seeds may help reduce stomach discomfort." }
+        ]
+    },
+    {
+        "disease": "sore throat",
+        "remedies": [
+            { "natural_remedy": "Honey and Lemon Tea", "description": "Honey and lemon can soothe a sore throat." },
+            { "natural_remedy": "Salt Water Gargle", "description": "Gargling with salt water helps reduce throat inflammation." },
+            { "natural_remedy": "Ginger Tea", "description": "Ginger tea can reduce throat pain and inflammation." }
+        ]
+    }
+]
